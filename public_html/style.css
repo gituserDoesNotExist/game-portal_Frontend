@@ -1,0 +1,41 @@
+@CHARSET "ISO-8859-1";
+
+:root {
+	--size: 200px;
+}
+
+body {
+	padding: 0;
+ 	margin: 0;
+}
+
+/* Welcome bar */
+.bar {
+	margin: 2% 0px 2% 0px;
+	background-color: #5c616b;
+	padding: 5px;
+	color: white;
+}
+
+/* Thumbnails */
+.thumbnail-item {
+	display:inline-block;
+}
+.thumbnail-bar>.thumbnail-item img {
+	width: var(--size);
+	height: var(--size);
+}
+.thumbnail-bar>.thumbnail-item .button-box {
+	display: flex;
+}
+.thumbnail-bar>.thumbnail-item .button-box>button {
+	flex: 1;
+}
+
+
+/* Infotext */
+.infobox {
+	margin: 10px;
+	min-width: 30px;
+	display: inline-block;
+}

@@ -1,0 +1,28 @@
+@CHARSET "ISO-8859-1";
+
+:root {
+	--size: 80%;
+}
+
+
+/* Caption */
+.tictactoe>caption {
+	font-size: 2em;
+	
+}
+
+/* Game */
+.tictactoe {
+	border: 1px solid black !important;
+	width: var(--size);
+	height: var(--size);
+	border-collapse: collapse;
+	table-layout:fixed
+}
+.tictactoe tr td {
+	border: 1px solid black;
+	text-align: center;
+	font-size: 5em;
+}
+
+

@@ -1,0 +1,16 @@
+{
+    "name": "GamePortal-Frontend",
+    "version": "1.0.0",
+    "keywords": [
+        "util",
+        "functional",
+        "server",
+        "client",
+        "browser"
+    ],
+    "author": "Manfred",
+    "contributors": [],
+    "dependencies": {
+        "ramda": "^0.25.0"
+    }
+}
