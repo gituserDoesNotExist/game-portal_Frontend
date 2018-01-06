@@ -24,6 +24,7 @@
         "karma": "^2.0.0",
         "karma-commonjs": "^1.0.0",
         "karma-jasmine": "^1.1.1",
-        "karma-jasmine-jquery": "^0.1.1"
+        "karma-jasmine-jquery": "^0.1.1",
+        "xmldom": "^0.1.27"
     }
 }

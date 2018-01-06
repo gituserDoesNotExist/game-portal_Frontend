@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
 	img1.addEventListener('click', function(e) {
 		var httpRequest = new XMLHttpRequest();
 		httpRequest.onreadystatechange = function() {
-			stateChangeListenerObject.stateChangeListenerFunction(httpRequest, jsonResponseProcessor);
+			stateChangeListenerObject.callCallbackIfSuccess(httpRequest, jsonResponseProcessor);
 		};
 		httpRequest.open("GET", "./thumbnail/sudoku-info.json", true);
 		httpRequest.send();
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
 	img2.addEventListener('click', function(e) {
 		var httpRequest = new XMLHttpRequest();
 		httpRequest.onreadystatechange = function() {
-			stateChangeListenerObject.stateChangeListenerFunction(httpRequest, xmlResponseProcessor);
+			stateChangeListenerObject.callCallbackIfSuccess(httpRequest, xmlResponseProcessor);
 		};
 		httpRequest.open("GET", "./thumbnail/tictactoe-info.xml", true);
 		httpRequest.send();

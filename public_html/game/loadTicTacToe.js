@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
 	var initialRequest = new XMLHttpRequest();
 	initialRequest.onreadystatechange = function() {
-		stateChangeListener.stateChangeListenerFunction(initialRequest, processInitialResponse)
+		stateChangeListener.callCallbackIfSuccess(initialRequest, processInitialResponse)
 	}
 	initialRequest.open("GET","/gameportal/game/load-tictactoe");
 	initialRequest.send();

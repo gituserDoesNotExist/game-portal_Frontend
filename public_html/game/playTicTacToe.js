@@ -15,7 +15,7 @@ module.exports.processUserInput=function(event, dto, fieldValue) {
 
 	let httpRequest = new XMLHttpRequest();
 	httpRequest.onreadystatechange = function() {
-		stateChangeListener.stateChangeListenerFunction(httpRequest, updateSingleFieldResponseProcessor);
+		stateChangeListener.callCallbackIfSuccess(httpRequest, updateSingleFieldResponseProcessor);
 	}
 	httpRequest.open("POST", "/gameportal/game/move", true);
 	httpRequest.send(JSON.stringify(dtoToServer));
