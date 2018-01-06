@@ -1,4 +1,4 @@
-describe("Response Processor:", () => {
+describe("Response Processor: ", () => {
     var ResponseProcessor = require("../../../../public_html/index/response-processor/ResponseProcessor.js");    
         
     var responseProcessor;
