@@ -6,38 +6,38 @@ document.addEventListener('DOMContentLoaded', function(e) {
 	var img1 = document.getElementById("info-sudoku");
 	var img2 = document.getElementById("info-tictactoe");
 	var infobox = document.getElementsByClassName("infobox")[0];
-	var tictactoeButton = document.getElementById("play-tictactoe")
+	var tictactoeButton = document.getElementById("play-tictactoe");
 
 
 
 	tictactoeButton.addEventListener('click', function(e) {
 		window.location.href = "/gameportal/game/tictactoe.html";
-	})
+	});
 
 	img1.addEventListener('click', function(e) {
 		var httpRequest = new XMLHttpRequest();
 		httpRequest.onreadystatechange = function() {
-			stateChangeListenerObject.stateChangeListenerFunction(httpRequest, jsonResponseProcessor)
+			stateChangeListenerObject.stateChangeListenerFunction(httpRequest, jsonResponseProcessor);
 		};
 		httpRequest.open("GET", "./thumbnail/sudoku-info.json", true);
 		httpRequest.send();
 
-	}, true)
+	}, true);
 
 	img2.addEventListener('click', function(e) {
 		var httpRequest = new XMLHttpRequest();
 		httpRequest.onreadystatechange = function() {
-			stateChangeListenerObject.stateChangeListenerFunction(httpRequest, xmlResponseProcessor)
+			stateChangeListenerObject.stateChangeListenerFunction(httpRequest, xmlResponseProcessor);
 		};
 		httpRequest.open("GET", "./thumbnail/tictactoe-info.xml", true);
 		httpRequest.send();
 		
-	}, true)
+	}, true);
 
 	var showResponseOnPage = function(text) {
 		infobox.textContent = text;
 		infobox.style.border = "1px solid black";
-	}
+	};
 	
 	var xmlResponseProcessor = function(httpRequest) {
 		let xmlDoc = httpRequest.responseXML;
@@ -46,14 +46,11 @@ document.addEventListener('DOMContentLoaded', function(e) {
 		let difficulty = xmlDoc.getElementsByTagName("difficulty")[0].childNodes[0].nodeValue;
 		let text = name + ": Maximum number of players:" + maxplayer + ". Level of difficulty: " + difficulty;
 		showResponseOnPage(text);
-
-	}
+	};
 
 	var jsonResponseProcessor = function(httpRequest) {
 		let jsonObj = JSON.parse(httpRequest.responseText);
 		let text = jsonObj.name + ": Maximum number of players:" + jsonObj.maxplayer + ". Level of difficulty: " + jsonObj.difficulty;
-		infobox.textContent = text;
-		infobox.style.border = "1px solid black";
 		showResponseOnPage(text);
-	}
-})
+	};
+});

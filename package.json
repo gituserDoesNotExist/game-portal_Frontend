@@ -10,7 +10,20 @@
     ],
     "author": "Manfred",
     "contributors": [],
+    "scripts": {
+        "jasmine-unit-spec": "./node_modules/.bin/jasmine JASMINE_CONFIG_PATH=spec/unitSpec/config/jasmine.json",
+        "karma-dom-spec": "./node_modules/.bin/karma start"
+    },
     "dependencies": {
+        "karma-chrome-launcher": "^2.2.0",
         "ramda": "^0.25.0"
+    },
+    "devDependencies": {
+        "jasmine": "^2.8.0",
+        "jasmine-core": "^2.8.0",
+        "karma": "^2.0.0",
+        "karma-commonjs": "^1.0.0",
+        "karma-jasmine": "^1.1.1",
+        "karma-jasmine-jquery": "^0.1.1"
     }
 }
