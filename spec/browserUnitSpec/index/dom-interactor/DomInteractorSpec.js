@@ -4,8 +4,8 @@ describe("DomInteractor:", () => {
     var infoboxElement;
     
     beforeEach(function () {
-        domInteractor = new DomInteractor();
         infoboxElement = setFixtures('<div class="infobox">test<div>');
+        domInteractor = new DomInteractor(document.getElementsByClassName('infobox')[0]);
     });
     
     it("should set the fixture", () => {
@@ -14,8 +14,7 @@ describe("DomInteractor:", () => {
     
     it("should set text content", () => {
         let testText = 'test text';
-        domInteractor.setInfobox(document.getElementsByClassName('infobox')[0]);
-        
+
         domInteractor.showResponseOnPage(testText);
         
         expect( $('.infobox').text()).toEqual(testText);

@@ -1,14 +1,10 @@
-function DomInteractor() {
+function DomInteractor(infoboxInput) {
     
-    var infobox;
-    
-    this.setInfobox = function(infoboxInput) {
-        infobox = infoboxInput;
-    };
+    this.infobox = infoboxInput
     
     this.showResponseOnPage = function(text) {
-	infobox.textContent = text;
-	infobox.style.border = "1px solid black";
+	this.infobox.textContent = text;
+	this.infobox.style.border = "1px solid black";
     };
 };
 

@@ -21,4 +21,5 @@ describe("Response Processor: ", () => {
         
         expect(responseProcessor.processXml(xhrMock)).toEqual('TicTacToe: Maximum number of players: 1. Level of difficulty: 2');
     });
+    
 });
