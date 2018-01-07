@@ -1,21 +1,14 @@
-var StateChangeListener = require('../../JavaScriptResources/StateChangeListener.js');
-var stateChangeListener = new StateChangeListener();
-
-function CallBackendController() {
-    this.httpRequest;
-    
-    this.setHhrObject = function(xhrObject) {
-        this.httpRequest = xhrObject;
-    };
+function CallBackendController(jQueryInput) {
+    this.jQueryTest = jQueryInput;
 };
-CallBackendController.prototype.getResource = function(jsonResponseProcessor, url) {
-    httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = function() {
-	stateChangeListener.callCallbackIfSuccess(httpRequest, jsonResponseProcessor);
-    };
-    httpRequest.open("GET", url, true);
-    httpRequest.send();
+CallBackendController.prototype.getResource = function(jsonResponseProcessor, urlInput) {
+    this.jQueryTest.ajax({
+        type: 'GET',
+        url: urlInput,
+        success: function(dataFromServer, statusText, jqXHR) {
+            jsonResponseProcessor(jqXHR);
+        }
+    });
 };
 
- 
  module.exports = CallBackendController;

@@ -12,9 +12,11 @@
     "contributors": [],
     "scripts": {
         "jasmine-unit-spec": "./node_modules/.bin/jasmine JASMINE_CONFIG_PATH=spec/unitSpec/config/jasmine.json",
-        "karma-dom-spec": "./node_modules/.bin/karma start"
+        "karma-unit-spec": "./node_modules/.bin/karma start"
     },
     "dependencies": {
+        "jasmine-ajax": "^3.3.1",
+        "jquery": "^3.2.1",
         "karma-chrome-launcher": "^2.2.0",
         "ramda": "^0.25.0"
     },

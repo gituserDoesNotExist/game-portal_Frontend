@@ -16,8 +16,9 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
         'https://code.jquery.com/jquery-3.2.1.js',
-        './public_html/index/dom-interactor/*.js',
-        './spec/domSpec/index/dom-interactor/*Spec.js'
+        './spec/browserUnitSpec/helpers/*.js',
+        './public_html/index/**/*.js',
+        './spec/browserUnitSpec/index/**/*Spec.js'
         
     ],
 
@@ -30,8 +31,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'spec/domSpec/**/*.js': ['commonjs'],
-        'public_html/index/dom-interactor/*.js': ['commonjs']
+        'spec/browserUnitSpec/**/*.js': ['commonjs'],
+        'public_html/index/**/*.js': ['commonjs']
     },
 
 

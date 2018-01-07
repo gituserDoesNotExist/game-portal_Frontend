@@ -4,7 +4,7 @@
     "**/unitSpec/**/*[S]pec.js"
   ],
   "helpers": [
-    "helpers/**/*.js"
+    "**/helpers/**/*.js"
   ],
   "stopSpecOnExpectationFailure": false,
   "random": false
