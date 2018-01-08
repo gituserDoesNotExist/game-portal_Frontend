@@ -24,7 +24,7 @@ function IndexWrapper(infobox, info_sudoku, info_tictactoe, play_tictactoe) {
         });
 
         info_tictactoe.click(() =>  {
-           SELF.callBackendController.getResource(SELF.processor.processJson, './thumbnail/tictactoe-info.xml'); 
+           SELF.callBackendController.getResource(SELF.processor.processJson, './thumbnail/tictactoe-info.json'); 
         });
 
         play_tictactoe.click(() => {
