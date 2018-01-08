@@ -7,17 +7,19 @@ function IndexWrapper(infobox, info_sudoku, info_tictactoe, play_tictactoe) {
     this.processor = new ResponseProcessor();
 
     var SELF = this;
-    info_sudoku.click(function() {
-        SELF.callBackendController.getResource(SELF.processor.processJson,'./thumbnail/sudoku-info.json');
-    });
+    this.registerHandlers = function() {
+        info_sudoku.click(function() {
+            SELF.callBackendController.getResource(SELF.processor.processJson,'./thumbnail/sudoku-info.json');
+        });
 
-    info_tictactoe.click(() =>  {
-       SELF.callBackendController.getResource(SELF.processor.processJson, './thumbnail/tictactoe-info.xml'); 
-    });
+        info_tictactoe.click(() =>  {
+           SELF.callBackendController.getResource(SELF.processor.processJson, './thumbnail/tictactoe-info.xml'); 
+        });
 
-    play_tictactoe.click(() => {
-        window.location.href = '/gameportal/game/tictactoe.html';
-    });
+        play_tictactoe.click(() => {
+            window.location.href = '/gameportal/game/tictactoe.html';
+        });
+    };
 }
 
 module.exports = IndexWrapper;

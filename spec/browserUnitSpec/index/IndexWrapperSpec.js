@@ -9,6 +9,7 @@ describe("Index Wrapper", () => {
         jasmine.getFixtures().fixturesPath = '/base/spec/browserUnitSpec/fixtures/';
         loadFixtures('index-fixture.html');
         indexWrapper = new IndexWrapper(document.getElementsByClassName('infobox')[0], $('#info-sudoku'), $('#info-tictactoe'), $('#play-tictactoe'));
+        indexWrapper.registerHandlers();
     });
     
     it("set the fixtue", () => {
