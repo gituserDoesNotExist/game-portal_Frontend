@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Jasmine Spec Runner v2.8.0</title>
+
+  <link rel="shortcut icon" type="image/png" href="helpers/jasmine-2.8.0/jasmine_favicon.png">
+  <link rel="stylesheet" href="helpers/jasmine-2.8.0/jasmine.css">
+  <link rel="stylesheet" href="../../public_html/style.css">
+</head>
+
+<body>
+    <script src="helpers/jasmine-2.8.0/jasmine.js"></script>
+    <script src="helpers/jasmine-2.8.0/jasmine-html.js"></script>
+    <script src="helpers/jasmine-2.8.0/boot.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+
+ <div class = "bar">Welcome to the game portal test</div>
+
+<div class = "thumbnail-bar">
+	<div class = "thumbnail-item">
+                <a><img src="./images/sudoku-thumbnail.PNG" alt="sudoku"/></a>
+		<div class = "button-box">
+			<button id="info-sudoku">Info</button>
+   			<button id = "play-sudoku">Play</button>
+		</div>
+	</div>
+	<div class = "thumbnail-item">
+                <a><img src="./images/tictactoe-thumbnail.PNG" alt="tictactoe"/></a>
+		<div class = "button-box">
+			<button id ="info-tictactoe">Info</button>
+      		<button id = "play-tictactoe">Play</button>
+		</div>
+	</div>
+</div>
+
+<div class = "infobox" ></div>
+
+    <!-- include source files here... -->
+  <script src="../../public_html/index-new-bundle.js"></script>  
+  <!-- include spec files here... -->
+  <script src="index/index-new-bundleSpec.js"></script>
+</body>
+</html>

@@ -1,7 +1,6 @@
 function ResponseProcessor() {
 };
 ResponseProcessor.prototype.processJson = function(httpRequest) {
-    console.log(httpRequest.responseText);
     let jsonObj = JSON.parse(httpRequest.responseText);
     return jsonObj.name + ": Maximum number of players: " + jsonObj.maxplayer + ". Level of difficulty: " + jsonObj.difficulty;
 };

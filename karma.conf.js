@@ -19,8 +19,7 @@ module.exports = function(config) {
         'https://code.jquery.com/jquery-3.2.1.js',
         './spec/browserUnitSpec/helpers/*.js',
         './public_html/index/**/*.js',
-        './spec/browserUnitSpec/index/**/*Spec.js'
-        
+        './spec/browserUnitSpec/index/**/*Spec.js',
     ],
 
 
