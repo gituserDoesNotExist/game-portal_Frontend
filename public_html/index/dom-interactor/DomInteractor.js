@@ -1,6 +1,6 @@
 function DomInteractor(infoboxInput) {
     
-    this.infobox = infoboxInput
+    this.infobox = infoboxInput;
     
     this.showResponseOnPage = function(text) {
 	this.infobox.textContent = text;

@@ -15,6 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+        {pattern: './spec/browserUnitSpec/fixtures/*.html', included: false, type: 'html'},
         'https://code.jquery.com/jquery-3.2.1.js',
         './spec/browserUnitSpec/helpers/*.js',
         './public_html/index/**/*.js',

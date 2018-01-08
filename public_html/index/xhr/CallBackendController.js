@@ -11,7 +11,7 @@ CallBackendController.prototype.getResource = function(responseProcessor, urlInp
         url: urlInput,
         success: function(dataFromServer, statusText, jqXHR) {
             let text = responseProcessor(jqXHR);
-            SELF.domInteractor.showResponseOnPage();
+            SELF.domInteractor.showResponseOnPage(text);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log("oh oh, something went wrong: " + textStatus + ". Error: " + errorThrown);
