@@ -19,7 +19,8 @@ module.exports = function(config) {
         'https://code.jquery.com/jquery-3.2.1.js',
         './spec/browserUnitSpec/helpers/*.js',
         './public_html/index/**/*.js',
-        './spec/browserUnitSpec/index/**/*Spec.js',
+        './public_html/game/**/*.js',
+        './spec/browserUnitSpec/**/*Spec.js'
     ],
 
 
@@ -32,7 +33,8 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
         'spec/browserUnitSpec/**/*.js': ['commonjs'],
-        'public_html/index/**/*.js': ['commonjs']
+        'public_html/index/**/*.js': ['commonjs'],
+        'public_html/game/**/*.js': ['commonjs']
     },
 
 
