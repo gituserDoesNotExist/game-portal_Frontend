@@ -26,6 +26,8 @@ module.exports = function(config) {
 
     // list of files / patterns to exclude
     exclude: [
+        './public_html/game/game-bundle.js',
+        './public_html/game/game.js'
     ],
 
 

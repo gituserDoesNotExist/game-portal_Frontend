@@ -1,4 +1,4 @@
-fdescribe("PostMoveService", () => {
+describe("PostMoveService", () => {
     const TicTacToeField = require('../../../../public_html/game/domain/TicTacToeField.js');
     const PostMoveService = require('../../../../public_html/game/xhr/PostMoveService.js');
     const service = new PostMoveService(jQuery);

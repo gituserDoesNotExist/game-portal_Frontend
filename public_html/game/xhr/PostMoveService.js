@@ -5,8 +5,8 @@ PostMoveService.prototype.postMove = function(urlInput, dto) {
     return this.jQuery.ajax({
         type: 'POST',
         url: urlInput,
-        data: JSON.stringify(dto)
-//        dataType: "application/json"
+        data: JSON.stringify(dto),
+        contentType: 'application/json'
     });
 };
 

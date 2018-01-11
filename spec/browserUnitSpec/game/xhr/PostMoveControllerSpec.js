@@ -27,5 +27,6 @@ describe("PostMoveController", () => {
         });        
         
         expect(analyzerMock.processResponse).toHaveBeenCalledWith(1,"gameStatus",9,"x");
+//        console.log(request.data());
     });
 });
