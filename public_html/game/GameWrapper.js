@@ -18,7 +18,7 @@ function GameWrapper(tableTicTacToe, textbox, jQueryInput) {
     };
 
     var SELF = this;
-    this.registerHandlers = function() {
+    this.registerHandlers = function(urlInput) {
         tableTicTacToe.addEventListener('click', function(event) {
             if (SELF.gameAnalyzer.isGameFieldFilled()) {
                 SELF.interactor.changeTextboxContent("all fields filled");
@@ -26,7 +26,7 @@ function GameWrapper(tableTicTacToe, textbox, jQueryInput) {
             }
             let fieldId = event.target.getAttribute("id");
             SELF.interactor.changeFieldValue(fieldId, "USER");
-            SELF.postMoveController.postMoveFromUser('todo', window.sessionStorage.getItem(fieldId)).done(function(data, status, xhr) {
+            SELF.postMoveController.postMoveFromUser(urlInput, window.sessionStorage.getItem(fieldId)).done(function(data, status, xhr) {
                 let dto = JSON.parse(xhr.responseText);
                 window.sessionStorage.setItem("" + dto.field.fieldId,JSON.stringify(dto.field));
             });

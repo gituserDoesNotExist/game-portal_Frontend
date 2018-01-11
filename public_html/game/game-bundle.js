@@ -19,7 +19,7 @@ function GameWrapper(tableTicTacToe, textbox, jQueryInput) {
     };
 
     var SELF = this;
-    this.registerHandlers = function() {
+    this.registerHandlers = function(urlInput) {
         tableTicTacToe.addEventListener('click', function(event) {
             if (SELF.gameAnalyzer.isGameFieldFilled()) {
                 SELF.interactor.changeTextboxContent("all fields filled");
@@ -27,7 +27,7 @@ function GameWrapper(tableTicTacToe, textbox, jQueryInput) {
             }
             let fieldId = event.target.getAttribute("id");
             SELF.interactor.changeFieldValue(fieldId, "USER");
-            SELF.postMoveController.postMoveFromUser('todo', window.sessionStorage.getItem(fieldId)).done(function(data, status, xhr) {
+            SELF.postMoveController.postMoveFromUser(urlInput, window.sessionStorage.getItem(fieldId)).done(function(data, status, xhr) {
                 let dto = JSON.parse(xhr.responseText);
                 window.sessionStorage.setItem("" + dto.field.fieldId,JSON.stringify(dto.field));
             });
@@ -73,7 +73,7 @@ jQuery( document ).ready(function() {
     var gameWrapper = new GameWrapper(document.getElementsByClassName('tictactoe')[0], jQuery('#textbox'), jQuery);
     
     gameWrapper.initialize('/gameportal/game/load-tictactoe');
-    gameWrapper.registerHandlers();
+    gameWrapper.registerHandlers('/gameportal/game/move');
     
 });
 },{"./GameWrapper.js":1}],5:[function(require,module,exports){
@@ -169,9 +169,9 @@ module.exports = PostMoveController;
 function PostMoveService(jQueryInput) {
     this.jQuery = jQueryInput;
 }
-PostMoveService.prototype.postMove = function(url, dto) {
+PostMoveService.prototype.postMove = function(urlInput, dto) {
     return this.jQuery.ajax({
-        url: url,
+        url: urlInput,
         data: JSON.stringify(dto)
 //        dataType: "application/json"
     });

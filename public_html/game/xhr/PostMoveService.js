@@ -1,9 +1,9 @@
 function PostMoveService(jQueryInput) {
     this.jQuery = jQueryInput;
 }
-PostMoveService.prototype.postMove = function(url, dto) {
+PostMoveService.prototype.postMove = function(urlInput, dto) {
     return this.jQuery.ajax({
-        url: url,
+        url: urlInput,
         data: JSON.stringify(dto)
 //        dataType: "application/json"
     });
