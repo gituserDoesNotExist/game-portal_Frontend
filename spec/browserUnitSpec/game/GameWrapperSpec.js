@@ -1,7 +1,7 @@
 describe("Game Wrapper", () => {
     const TicTacToeField = require('../../../public_html/game/domain/TicTacToeField.js');
-    const responseTextLoadGame = '{"game": {"id": 1,"description": "egal","status": "egal"},"fields": [{"id": 1, "lastModified": "2000-10-2", "fieldId": 2, "gameId": 1, "value": "first-field"},{"id": 3, "lastModified": "2000-10-2", "fieldId": 8, "gameId": 1, "value": "other-field"}]}';
-    var responseTextPostMove = '{"status":{"id":2,"text":"AI won"},"field":{"id":1,"lastModified":"2017","fieldId":9,"gameId":1,"value":"x"}}';
+    const responseTextLoadGame = '{"game": {"id": 1,"description": "egal","status": "egal"},"fields": [{"id": 1, "lastModified": "2001-10-03T10:02:03", "fieldId": 2, "gameId": 1, "value": "first-field"},{"id": 3, "lastModified": "2000-10-03T10:02:03", "fieldId": 8, "gameId": 1, "value": "other-field"}]}';
+    var responseTextPostMove = '{"status":{"id":2,"text":"AI won"},"field":{"id":1,"lastModified":"2005-10-03T10:02:03","fieldId":9,"gameId":1,"value":"x"}}';
     const GameWrapper = require('../../../public_html/game/GameWrapper.js');
     var gameWrapper;
     
@@ -34,8 +34,8 @@ describe("Game Wrapper", () => {
         expect( $('.tictactoe td[id=2]').text()).toEqual('first-field');
         expect( $('.tictactoe td[id=8]').text()).toEqual('other-field');
         expect( $('.tictactoe td[id=5]').text()).toEqual('--');
-        expect(window.sessionStorage.getItem("2")).toContain(JSON.stringify(new TicTacToeField(1,"2000-10-2",2,1,"first-field")));
-        expect(window.sessionStorage.getItem("8")).toEqual(JSON.stringify(new TicTacToeField(3,"2000-10-2",8,1,"other-field")));
+        expect(window.sessionStorage.getItem("2")).toContain(JSON.stringify(new TicTacToeField(1,"2001-10-03T10:02:03",2,1,"first-field")));
+        expect(window.sessionStorage.getItem("8")).toEqual(JSON.stringify(new TicTacToeField(3,"2000-10-03T10:02:03",8,1,"other-field")));
         
         jasmine.Ajax.uninstall();
     });
@@ -43,7 +43,7 @@ describe("Game Wrapper", () => {
     it("should process response correctly", () => {
         jasmine.Ajax.install();
         window.sessionStorage.setItem("9",JSON.stringify(new TicTacToeField(1,"2000-10-2",9,200,"first-field")));
-        expect(window.sessionStorage.getItem("9")).toEqual('{"id":1,"lastModified":"2000-10-2","fieldId":9,"gameId":200,"value":"first-field"}');
+        expect(window.sessionStorage.getItem("9")).toEqual('{"id":1,"lastModified":"2000-10-03T10:02:03","fieldId":9,"gameId":200,"value":"first-field"}');
         
         gameWrapper.registerHandlers();
 
