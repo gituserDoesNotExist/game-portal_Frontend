@@ -23,7 +23,7 @@ describe("PostMoveController", () => {
         request = jasmine.Ajax.requests.mostRecent();
         request.respondWith({
             status: 200,
-            responseText: '{"game":{"id":200,"status":{"id":1,"text":"gameStatus"}},"field":{"id":1,"fieldId":9,"value":"x"}}'
+            responseText: '{"status":{"id":1,"text":"gameStatus"},"field":{"id":1,"fieldId":9,"value":"x"}}'
         });        
         
         expect(analyzerMock.processResponse).toHaveBeenCalledWith(1,"gameStatus",9,"x");
