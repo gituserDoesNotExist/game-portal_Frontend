@@ -8,10 +8,7 @@ PostMoveController.prototype.postMoveFromUser = function(url, dto) {
 //    da man in der .done()-Funktion eine Funktion definiert zeigt this auf das window objekt, dsw. muss man SELF = this setzen
     var SELF = this;
     return this.service.postMove(url,dto).done(function(data, textStatus, jqXHR) {
-        console.log("response");
-        console.log(jqXHR.responseText);
         dto = JSON.parse(jqXHR.responseText);
-        console.log(dto);
         SELF.analyzer.processResponse(dto.status.id, dto.status.text, dto.field.fieldId, dto.field.value);
     }).fail(function(jqXHR, textStatus, errorThrown) {
         console.log("something went wrong: " + textStatus + ". " + errorThrown);

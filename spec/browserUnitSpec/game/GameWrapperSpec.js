@@ -1,7 +1,7 @@
 describe("Game Wrapper", () => {
     const TicTacToeField = require('../../../public_html/game/domain/TicTacToeField.js');
     const responseTextLoadGame = '{"game": {"id": 1,"description": "egal","status": "egal"},"fields": [{"id": 1, "lastModified": "2001-10-03T10:02:03", "fieldId": 2, "gameId": 1, "value": "first-field"},{"id": 3, "lastModified": "2000-10-03T10:02:03", "fieldId": 8, "gameId": 1, "value": "other-field"}]}';
-    var responseTextPostMove = '{"status":{"id":2,"text":"AI won"},"field":{"id":1,"lastModified":"2005-10-03T10:02:03","fieldId":9,"gameId":1,"value":"x"}}';
+    var responseTextPostMove = '{"status":{"id":2,"text":"Spiel laeuft noch"},"field":{"id":90,"lastModified":"2005-10-03T10:02:03","fieldId":9,"gameId":1,"value":"AI"}}';
     const GameWrapper = require('../../../public_html/game/GameWrapper.js');
     var gameWrapper;
     
@@ -42,8 +42,8 @@ describe("Game Wrapper", () => {
     
     it("should process response correctly", () => {
         jasmine.Ajax.install();
-        window.sessionStorage.setItem("9",JSON.stringify(new TicTacToeField(1,"2000-10-2",9,200,"first-field")));
-        expect(window.sessionStorage.getItem("9")).toEqual('{"id":1,"lastModified":"2000-10-03T10:02:03","fieldId":9,"gameId":200,"value":"first-field"}');
+//        simulate loading game
+        window.sessionStorage.setItem("2",JSON.stringify(new TicTacToeField(87,"2000-10-03T10:02:03",2,200,"--")));
         
         gameWrapper.registerHandlers();
 
@@ -57,9 +57,12 @@ describe("Game Wrapper", () => {
             responseText: responseTextPostMove
         });
         
-        expect(jQuery('.tictactoe td[id="9"').text()).toEqual('x');
-        expect(jQuery('#textbox').text()).toEqual('AI won');
-        expect(window.sessionStorage.getItem("9")).toEqual('{"id":1,"lastModified":"2017","fieldId":9,"gameId":1,"value":"x"}')
+        expect(jQuery('.tictactoe td[id="9"').text()).toEqual('AI');
+        expect(jQuery('#textbox').text()).toEqual('Spiel laeuft noch');
+        console.log("dkn");
+        expect(jasmine.Ajax.requests.mostRecent().data()).toEqual('{"id":87,"lastModified":"2000-10-03T10:02:03","fieldId":2,"gameId":200,"value":"USER"}');
+        expect(window.sessionStorage.getItem("2")).toEqual('{"id":87,"lastModified":"2000-10-03T10:02:03","fieldId":2,"gameId":200,"value":"USER"}');
+        expect(window.sessionStorage.getItem("9")).toEqual('{"id":90,"lastModified":"2005-10-03T10:02:03","fieldId":9,"gameId":1,"value":"AI"}');
 
         jasmine.Ajax.uninstall();
       });

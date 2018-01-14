@@ -27,6 +27,7 @@ function GameWrapper(tableTicTacToe, textbox, jQueryInput) {
             }
             let fieldId = event.target.getAttribute("id");
             SELF.interactor.changeFieldValue(fieldId, "USER");
+            updateStorage(fieldId,"USER");
             SELF.postMoveController.postMoveFromUser(urlInput, window.sessionStorage.getItem(fieldId)).done(function(data, status, xhr) {
                 let dto = JSON.parse(xhr.responseText);
                 window.sessionStorage.setItem("" + dto.field.fieldId,JSON.stringify(dto.field));
@@ -34,6 +35,11 @@ function GameWrapper(tableTicTacToe, textbox, jQueryInput) {
         }, false);
     };
     
+    function updateStorage(fieldId, valueInput) {
+        let fromStorage = JSON.parse(window.sessionStorage.getItem(fieldId));
+        fromStorage.value = valueInput;
+        window.sessionStorage.setItem(fieldId, JSON.stringify(fromStorage));
+    }
     
 }
 
@@ -162,10 +168,7 @@ PostMoveController.prototype.postMoveFromUser = function(url, dto) {
 //    da man in der .done()-Funktion eine Funktion definiert zeigt this auf das window objekt, dsw. muss man SELF = this setzen
     var SELF = this;
     return this.service.postMove(url,dto).done(function(data, textStatus, jqXHR) {
-        console.log("response");
-        console.log(jqXHR.responseText);
         dto = JSON.parse(jqXHR.responseText);
-        console.log(dto);
         SELF.analyzer.processResponse(dto.status.id, dto.status.text, dto.field.fieldId, dto.field.value);
     }).fail(function(jqXHR, textStatus, errorThrown) {
         console.log("something went wrong: " + textStatus + ". " + errorThrown);
