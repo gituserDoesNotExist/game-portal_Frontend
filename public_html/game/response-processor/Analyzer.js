@@ -16,6 +16,11 @@ Analyzer.prototype.processResponse = function(gameStatusId, gameStatusText, fiel
          case 4:
              this.interactor.changeFieldValue(fieldId, fieldValue);
              this.interactor.changeTextboxContent(gameStatusText);
+             break;
+         case 5:
+             this.interactor.changeFieldValue(fieldId, fieldValue);
+             this.interactor.changeTextboxContent(gameStatusText);
+             break;
      };
 };
 
